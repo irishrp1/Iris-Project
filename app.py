@@ -8,9 +8,9 @@ from unicode import convertunicode
 from sklearn.datasets import load_mlcomp
 
 
-MLCOMPDIR = r'16NepaliNews/16NepaliNews'
+MLCOMPDIR = r'NewsData'
 
-trainNews = load_mlcomp('16NepaliNews', 'train', mlcomp_root=MLCOMPDIR)
+trainNews = load_mlcomp('NewsData', 'train', mlcomp_root=MLCOMPDIR)
 
 app = Flask(__name__)
 
