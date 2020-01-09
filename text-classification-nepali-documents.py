@@ -11,10 +11,9 @@ from sklearn.naive_bayes import MultinomialNB, BernoulliNB
 
 MLCOMPDIR = r'16NepaliNews/16NepaliNews'
 
-trainNews = load_mlcomp('16NepaliNews', 'train', mlcomp_root=MLCOMPDIR)
-testNews = load_mlcomp('16NepaliNews', 'test', mlcomp_root=MLCOMPDIR)
+trainNews = load_mlcomp('NepaliData', 'train', mlcomp_root=MLCOMPDIR)
+testNews = load_mlcomp('NepaliData', 'test', mlcomp_root=MLCOMPDIR)
 
-''' Nepali Stop Words '''
 
 
 stopWords = set(nltk.corpus.stopwords.words('nepali'))
@@ -25,7 +24,6 @@ xTest = testNews.data
 yTrain = trainNews.target
 yTest = testNews.target
 
-''' Vectorizer '''
 
 tfidfVectorizer = TfidfVectorizer(tokenizer=lambda x: x.split(" "),
                                   sublinear_tf=True, encoding='utf-8',
@@ -90,7 +88,6 @@ trainAndEvaluate(clf3, xTrain, xTest, yTrain, yTest)
 
 
 
-# Most Important Features
 
 def showTopFeatures(classifier, vectorizer, categories, number=25):
     featureNames = sp.asarray(vectorizer.get_feature_names())
